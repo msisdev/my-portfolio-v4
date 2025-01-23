@@ -1,0 +1,81 @@
+---
+import Section from "~/components/Section.astro"
+import StackEntry from "~/components/StackEntry.astro"
+
+type Stack = [string, string]
+
+const stacks: Record<"js" | "utility" | "style" | "deploy", Stack[]> = {
+  js: [
+    ["React", "https://react.dev/"],
+    ["AstroJS", "https://astro.build/"],
+  ],
+  utility: [
+    ["nanostores", "https://github.com/nanostores/nanostores"],
+  ],
+  style: [
+    ["CSS + BEM", "https://getbem.com/"],
+  ],
+  deploy: [
+    ["Cloudflare Pages", "https://pages.cloudflare.com/"],
+  ],
+}
+---
+<Section>
+  <h2 class="text-2xl font-bold mb-8">기술 스택</h2>
+  <div class="overflow-x-auto">
+    <table class="table">
+      <!-- head -->
+      <thead>
+        <tr>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Framework -->
+        <tr>
+          <th>Language</th>
+          <td class="flex flex-wrap gap-2">
+            <StackEntry name="Typescript" href="https://www.typescriptlang.org/" />
+          </td>
+        </tr>
+        <!-- Framework -->
+        <tr>
+          <th>Framework</th>
+          <td class="flex flex-wrap gap-2">
+            {stacks.js.map(v => (
+              <StackEntry name={v[0]} href={v[1]} />
+            ))}
+          </td>
+        </tr>
+        <!-- Utility -->
+        <tr>
+          <th>Utility</th>
+          <td class="flex flex-wrap gap-2">
+            {stacks.utility.map(v => (
+              <StackEntry name={v[0]} href={v[1]} />
+            ))}
+          </td>
+        </tr>
+        <!-- Style -->
+        <tr>
+          <th>Style</th>
+          <td class="flex flex-wrap gap-2">
+            {stacks.style.map(v => (
+              <StackEntry name={v[0]} href={v[1]} />
+            ))}
+          </td>
+        </tr>
+        <!-- Deploy -->
+        <tr>
+          <th>Deploy</th>
+          <td class="flex flex-wrap gap-2">
+            {stacks.deploy.map(v => (
+              <StackEntry name={v[0]} href={v[1]} />
+            ))}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</Section>

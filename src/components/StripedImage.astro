@@ -1,0 +1,27 @@
+---
+interface Props {
+  image: string
+}
+
+const { image } = Astro.props
+---
+<figure class="max-w-xl relative overflow-hidden">
+  <img
+    src={image}
+    class="w-full h-full object-cover"
+  />
+  <div
+    class="absolute inset-0 pointer-events-none opacity-10"
+    style={{
+      backgroundImage: `
+        repeating-linear-gradient(
+          45deg,
+          var(--fallback-b1, oklch(var(--b1))),
+          var(--fallback-b1, oklch(var(--b1))) 15px,
+          var(--fallback-bc, oklch(var(--bc))) 15px,
+          var(--fallback-bc, oklch(var(--bc))) 16px
+        )
+      `,
+    }}
+  ></div>
+</figure>

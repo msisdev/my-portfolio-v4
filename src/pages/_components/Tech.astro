@@ -1,0 +1,22 @@
+---
+import navs from "~/config/navs"
+import TechIcon from "~/components/TechIcon.astro"
+
+---
+<section id={navs.tech} class="w-full flex flex-col items-center px-2 py-32 gap-4 sm:gap-8 bg-base-300">
+  <h2 class="text-2xl font-semibold">제가 자신있게 다룰 수 있는 기술입니다.</h2>
+  <div class="container my-8 flex flex-wrap justify-center gap-4">
+    <TechIcon icon="devicon-typescript-original" />
+    <TechIcon icon="devicon-react-original" />
+    <TechIcon icon="devicon-tailwindcss-original" />
+    <TechIcon icon="devicon-postgresql-plain" />
+    <TechIcon icon="devicon-cloudflare-plain" />
+    <TechIcon icon="devicon-githubactions-plain" />
+  </div>
+  
+  <div class="w-fit flex flex-col items-start gap-2">
+    <p>저는 JS의 활발한 생태계를 좋아합니다.</p>
+    <p>유튜브, 블로그 등 다양한 매체에서 트렌드를 접하고 있습니다.</p>
+    <p>다룰 수 있는 기술을 조금씩 늘리며 성장하고 있습니다.</p>
+  </div>
+</section>

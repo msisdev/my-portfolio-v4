@@ -1,0 +1,87 @@
+---
+import Section from "~/components/Section.astro"
+import StackEntry from "~/components/StackEntry.astro"
+import urls from "~/config/urls"
+
+type Stack = [string, string]
+
+const stacks: Record<"js" | "utility" | "style" | "deploy", Stack[]> = {
+  js: [
+    ["React", "https://react.dev/"],
+    ["NextJS", "https://nextjs.org/"],
+  ],
+  utility: [
+    ["Zustand", "https://github.com/pmndrs/zustand"],
+    ["react-hook-form", "https://react-hook-form.com/"],
+    ["react-query", "https://tanstack.com/query/latest"],
+    ["minisearch", urls.minisearch],
+  ],
+  style: [
+    ["TailwindCSS", "https://tailwindcss.com/"],
+    ["React Aria Components", "https://react-spectrum.adobe.com/react-aria/"],
+    ["JollyUI", "https://www.jollyui.dev/"],
+  ],
+  deploy: [
+    ["Cloudflare Pages", "https://pages.cloudflare.com/"],
+  ],
+}
+---
+<Section>
+  <h2 class="text-2xl font-bold mb-8">프론트엔드 기술 스택</h2>
+  <div class="overflow-x-auto">
+    <table class="table">
+      <!-- head -->
+      <thead>
+        <tr>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Framework -->
+        <tr>
+          <th>Language</th>
+          <td class="flex flex-wrap gap-2">
+            <StackEntry name="Typescript" href="https://www.typescriptlang.org/" />
+          </td>
+        </tr>
+        <!-- Framework -->
+        <tr>
+          <th>Framework</th>
+          <td class="flex flex-wrap gap-2">
+            {stacks.js.map(v => (
+              <StackEntry name={v[0]} href={v[1]} />
+            ))}
+          </td>
+        </tr>
+        <!-- Utility -->
+        <tr>
+          <th>Utility</th>
+          <td class="flex flex-wrap gap-2">
+            {stacks.utility.map(v => (
+              <StackEntry name={v[0]} href={v[1]} />
+            ))}
+          </td>
+        </tr>
+        <!-- Style -->
+        <tr>
+          <th>Style</th>
+          <td class="flex flex-wrap gap-2">
+            {stacks.style.map(v => (
+              <StackEntry name={v[0]} href={v[1]} />
+            ))}
+          </td>
+        </tr>
+        <!-- Deploy -->
+        <tr>
+          <th>Deploy</th>
+          <td class="flex flex-wrap gap-2">
+            {stacks.deploy.map(v => (
+              <StackEntry name={v[0]} href={v[1]} />
+            ))}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</Section>

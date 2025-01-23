@@ -1,0 +1,28 @@
+---
+import navs from "~/config/navs"
+import ProjectCard from "~/components/ProjectCard.astro"
+import paths from "~/config/paths"
+
+---
+<section id={navs.project} class="container my-24 flex flex-col justify-center items-center gap-8 break-keep">
+  <h2 class="text-2xl font-semibold">프로젝트</h2>
+  <div class="flex flex-wrap justify-center gap-8">
+    <div class="indicator">
+      <span class="indicator-item badge badge-warning">진행중</span>
+      <ProjectCard image="/alleys.png" href={paths.alleys}>
+        <h2 class="card-title">Alleys</h2>
+        <p>전시회를 중심으로 기획한 커뮤니티 서비스 입니다.</p>
+        <p>2025.01.01 ~ 진행중</p>
+      </ProjectCard>
+    </div>
+    <div class="indicator">
+      <span class="indicator-item badge badge-success">완성</span>
+      <ProjectCard image="/drincc.png" href={paths.drincc}>
+        <h2 class="card-title">Drin.cc</h2>
+        <p>무료 URL Shortener 입니다.</p>
+        <p>2024.04</p>
+      </ProjectCard>
+    </div>
+    
+  </div>
+</section>

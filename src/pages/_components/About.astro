@@ -1,0 +1,29 @@
+---
+import navs from "~/config/navs"
+---
+<section
+  id={navs.about}
+  class={`
+    container min-h-[80vh]
+    flex flex-col justify-center items-center
+    px-4 pb-32 gap-4 break-keep
+  `}
+>
+  <div class="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8">
+    <h1 class="text-base-content text-4xl font-semibold bg-gradient-to-r from-primary to-error bg-clip-text text-transparent font-black text-4xl w-fit">
+      프론트엔드 개발자<br class="md:hidden" />
+      김민섭 입니다.
+    </h1>
+    <img
+      class="m-0 w-24"
+      src="/nerd_face.png"
+    />
+  </div>
+
+  <div class="w-fit flex flex-col items-start gap-2">
+    <h2 class="text-base-content text-2xl font-semibold">저는</h2>
+    <p class="text-base-content">멋진 개발자가 되는 것이 꿈입니다.</p>
+    <p class="text-base-content">크고 작은 설계를 놓치지 않으려 노력합니다.</p>
+    <p class="text-base-content">성능을 최적화하고 잘 동작할 때 뿌듯함을 느낍니다.</p>
+  </div>
+</section>

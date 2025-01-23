@@ -1,0 +1,66 @@
+---
+import Section from "~/components/Section.astro"
+import urls from "~/config/urls"
+import ExhibitionCarousel from "./ExhibitionCarousel.astro"
+
+---
+<Section>
+  <h2 class="text-2xl font-bold mb-8">구현 2. 전시회 목록</h2>
+  <div class="w-full overflow-x-auto flex flex-col items-center lg:grid lg:grid-cols-[repeat(2,minmax(0,1fr))] lg:items-start gap-8">
+    <ExhibitionCarousel />
+    <div>
+      <div class="break-word prose">
+        <h3>요구사항</h3>
+        <ul>
+          <li><p>검색 옵션이 URL에 반영되어 링크를 공유할 수 있습니다.</p></li>
+          <li><p>클라이언트의 네트워크 사용과 연산을 최소화합니다.</p></li>
+        </ul>
+  
+        <h3>Data Fetching: Server vs Client</h3>
+        <p>재사용 가능한 정보를 클라이언트에서 요청하도록 하면 불필요한 네트워크 사용을 줄일 수 있습니다.</p>
+        <div class="overflow-x-auto">
+          <table class="">
+            <thead>
+              <tr>
+                <th><p>Server-side (재사용 불가능)</p></th>
+                <th><p>Client-side (재사용 가능)</p></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><p>전시회 페이지 데이터</p></td>
+                <td>
+                  <p>최대 페이지 수</p>
+                  <p>전시 장소 ID와 이름 리스트</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  
+        <h3>
+          <a href={urls["react-hook-form"]} target="_blank">
+            react-hook-form
+          </a>
+        </h3>
+        <p>Input 상태를 관리하여 렌더링을 효율적으로 실행합니다.</p>
+        
+        <h3>
+          <a href={urls.zustand} target="_blank">Zustand</a> +
+          <a href={urls.minisearch} target="_blank">minisearch</a>
+        </h3>
+        <!-- <p>클라이언트에서 전시 장소 리스트를 가공하여 minisearch 인덱스를 만듭니다.</p>
+        <p>인덱스를 Zustand에 저장하여 재사용합니다.</p> -->
+        <ol>
+          <li><p>클라이언트에서 전시 장소 리스트를 가공하여 minisearch 인덱스를 만듭니다.</p></li>
+          <li><p>인덱스를 Zustand에 저장하여 재사용합니다.</p></li>
+        </ol>
+      </div>
+
+      <a href={urls.alleysExhibition} target="_blank" class="btn btn-primary">
+        확인하기
+        <span class="icon-[tabler--external-link]" style="width: 24px; height: 24px;"></span>
+      </a>
+    </div>
+  </div>
+</Section>

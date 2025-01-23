@@ -1,0 +1,22 @@
+---
+import Section from "~/components/Section.astro"
+import StripedImage from "~/components/StripedImage.astro"
+import urls from "~/config/urls"
+
+
+---
+<Section>
+  <h2 class="text-2xl font-bold mb-8">구현 1. 미리보기</h2>
+
+  <div class="flex flex-col md:grid md:grid-cols-2 gap-8">
+    <div class="h-fit flex justify-center">
+      <StripedImage image="drincc_preview.png" />
+    </div>
+    <div>
+      <div class="prose">
+        <p>미리보기 옵션을 선택하면 리디렉션하기 전에 링크 값을 확인할 수 있습니다.</p>
+        <p>발표할 때와 같은 상황에서 페이지가 사람들에게 보여지기 전에 한번 더 확인할 수 있습니다.</p>
+      </div>
+    </div>
+  </div>
+</Section>

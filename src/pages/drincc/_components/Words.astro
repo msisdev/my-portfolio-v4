@@ -1,0 +1,52 @@
+---
+import { Code } from "astro/components"
+import Section from "~/components/Section.astro"
+import StripedImage from "~/components/StripedImage.astro"
+import urls from "~/config/urls"
+
+const code = `
+// /src/server/key/wordset.ts
+export const wordset = [
+  "abode",
+  "abyss",
+  "access",
+  "accord",
+  "ache",
+  "acre",
+  "act",
+  "action",
+  "actor",
+  "addio",
+  ...
+]
+`
+---
+<Section>
+  <h2 class="text-2xl font-bold mb-8">구현 3. 단어사전</h2>
+
+  <div class="flex flex-col md:grid md:grid-cols-2 gap-8">
+    <div class="bg-base-300 flex h-full justify-center p-6">
+      <Code code={code} lang="ts" class="p-4" />
+    </div>
+    <div>
+      <div class="prose">
+        <p><strong>words</strong> 옵션을 구현하려면 영어 단어 리스트가 필요합니다.</p>
+        <p>
+          처음에는 Github에서 English Words를 검색해서 나오는 오픈 소스를 쓰려고 했습니다.
+          그런데 이런 자료는 사용 빈도가 높은 단어를 모았기 때문에 안전하지 않았습니다.
+          비속어가 자주 보였고, 원어민만 아는 의미불명의 비속어도 있을지도 몰랐습니다.
+        </p>
+        <p>
+          그래서 저는 직접 영어 단어 사전을 구현하기로 했습니다.
+          어떤 텍스트가 비속어 없는 순수한 단어만 갖고 있을까요? 바로 동화였습니다.
+        </p>
+        <p>
+          저는 저작권 문제가 없는 <a href={urls.gutenberg} target="_blank">프로젝트 구텐베르크</a>라는 사이트를 찾아서, 그림 형제의 동화를 다운로드했습니다.
+          그리고 파이썬 spaCy NLP 모델을 사용해 형용사와 명사를 추출하고 3~6글자 단어만 골랐습니다.
+          동화 4권을 작업한 결과 단어 2000개를 확보할 수 있었습니다.
+          단어 두 개면 4M, 세 개면 8000M가지 경우의 수가 나오므로 충분했습니다.
+        </p>
+      </div>
+    </div>
+  </div>
+</Section>

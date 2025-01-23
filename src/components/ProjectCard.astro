@@ -1,0 +1,43 @@
+---
+interface Props {
+  image: string
+  href: string
+}
+
+const { image, href } = Astro.props
+---
+<div class="card w-[24rem] max-w-[70vw] border border-neutral">
+  <figure class="relative overflow-hidden">
+    <img
+      src={image}
+      class="w-full h-full object-cover"
+    />
+    <div
+      class="absolute inset-0 pointer-events-none opacity-10"
+      style={{
+        backgroundImage: `
+          repeating-linear-gradient(
+            45deg,
+            var(--fallback-b1, oklch(var(--b1))),
+            var(--fallback-b1, oklch(var(--b1))) 15px,
+            var(--fallback-bc, oklch(var(--bc))) 15px,
+            var(--fallback-bc, oklch(var(--bc))) 16px
+          )
+        `,
+      }}
+    ></div>
+  </figure>
+  <div class="card-body gap-4">
+    <!-- <h2 class="card-title">{title}</h2>
+    <p>{content}</p> -->
+    <div class="flex flex-col gap-2">
+      <slot />
+    </div>
+    <div class="card-actions justify-end">
+      <a href={href} class="btn btn-primary">
+        <span class="icon-[tabler--search] size-5"></span>
+        자세히
+      </a>
+    </div>
+  </div>
+</div>

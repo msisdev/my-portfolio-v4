@@ -1,0 +1,42 @@
+---
+import Section from "~/components/Section.astro"
+import Layout from "~/layouts/Layout.astro"
+import Stack from "./_components/Stack.astro"
+import Auth from "./_components/Auth.astro"
+import Goal from "./_components/Goal.astro"
+import Exhibitions from "./_components/Exhibitions.astro"
+import Style from "./_components/Style.astro"
+import paths from "~/config/paths"
+import urls from "~/config/urls"
+---
+<Layout>
+  <Section>
+    <a href="https://www.alleys.app/" class="link link-animated link-primary" target="_blank">
+      <h1 class="text-4xl font-bold">
+        Alleys
+      </h1>
+    </a>
+    <h2 class="text-2xl">전시회 중심 커뮤니티</h2>
+    <p>2024.06 ~ 진행중</p>
+  </Section>
+  <hr class="divider" />
+  <Goal />
+  <hr class="divider" />
+  <Section>
+    <h2 class="text-2xl font-bold mb-8">시스템 디자인</h2>
+    <img src="alleys_system.png" class="w-full max-w-[64rem]" />
+  </Section>
+  <hr class="divider" />
+  <Stack />
+  <hr class="divider" />
+  <Auth />
+  <hr class="divider" />
+  <Exhibitions />
+  <hr class="divider" />
+  <Style />
+  <hr class="divider" />
+  <Section>
+    <a href={urls.alleys} target="_blank" class="btn btn-accent btn-gradient">Alleys 보러가기</a>
+    <a href={paths.project} class="btn btn-outline">다른 프로젝트 보기</a>
+  </Section>
+</Layout>

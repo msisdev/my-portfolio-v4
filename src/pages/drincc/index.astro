@@ -1,0 +1,50 @@
+---
+import Section from "~/components/Section.astro"
+import Layout from "~/layouts/Layout.astro"
+import Goal from "./_components/Goal.astro"
+import urls from "~/config/urls"
+import Stack from "./_components/Stack.astro"
+import Preview from "./_components/Preview.astro"
+import Key from "./_components/Key.astro"
+import Words from "./_components/Words.astro"
+import paths from "~/config/paths"
+---
+
+<Layout>
+  <Section>
+    <div class="flex flex-wrap gap-4">
+      <a href={urls.drincc} class="link link-animated link-primary" target="_blank">
+        <h1 class="text-4xl font-bold">
+          Drin.cc
+        </h1>
+      </a>
+      <a class="btn btn-outline btn-primary" href={urls.drinccRepo}>
+        <span class="icon-[tabler--brand-github]"></span>
+      </a>
+    </div>
+    <h2 class="text-2xl">무료 URL Shortener</h2>
+    <p>2024.04</p>
+  </Section>
+  <hr class="divider" />
+  <Goal />
+  <hr class="divider" />
+  <Section>
+    <h2 class="text-2xl font-bold mb-8">시스템 디자인</h2>
+    <img src="drincc_system.png" class="w-full max-w-[64rem]" />
+  </Section>
+  <hr class="divider" />
+  <Stack />
+  <hr class="divider" />
+  <Preview />
+  <hr class="divider" />
+  <Key />
+  <hr class="divider" />
+  <Words />
+  <hr class="divider" />
+  <Section>
+    <a href={urls.drincc} target="_blank" class="btn btn-primary btn-gradient">Drin.cc 보러가기</a>
+    <a href={urls.drinccRepo} target="_blank" class="btn btn-accent btn-gradient">
+      <span class="icon-[tabler--brand-github]"></span> Github</a>
+    <a href={paths.project} class="btn btn-outline">다른 프로젝트 보기</a>
+  </Section>
+</Layout>

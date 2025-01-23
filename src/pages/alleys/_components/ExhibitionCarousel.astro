@@ -1,0 +1,88 @@
+---
+import { Code } from 'astro:components'
+import StripedImage from "~/components/StripedImage.astro"
+
+const code = `
+// page.tsx
+export default async function Page({ params, searchParams }: Props) {
+  const { env } = getRequestContext()
+  
+  const localQuery = parseLocalQuery(await searchParams)
+  if (!localQuery) {  // Invalid query
+    redirect(paths.exhibitions.index + "?preset=current")
+  }
+
+  const [eq, tq] = buildRequestQuery(localQuery)
+  const exhibitions = fetchExhibitions(env, eq)
+
+  return (
+    <div>
+      <h1>전시</h1>
+      <FormProvider defaultValues={getDefaultValues(localQuery)} >
+        <Options />
+        <Suspense fallback={(
+          <DisplayFrame>
+            {Array.from({ length: 4 }).map((_, i)  => (
+              <DisplayEntry key={i.toString()} />
+            ))}
+          </DisplayFrame>
+        )}>
+          <Display exhibitions={exhibitions} />
+        </Suspense>
+        <Pagination totalRequestQuery={tq} currentPage={localQuery.page ?? 1} />
+      </FormProvider>
+    </div>
+  )
+}
+`
+---
+
+<!-- Slider -->
+<div
+  data-carousel='{
+    "loadingClasses": "opacity-0",
+    "dotsItemClasses": "carousel-box"
+  }' class="relative w-full" >
+  <div class="carousel">
+    <div class="carousel-body h-full opacity-0">
+      <div class="carousel-slide">
+        <div class="bg-base-300/60 flex h-full justify-center p-6">
+          <div class="w-fit h-fit">
+            <StripedImage image="alleys_ex_image.png" />
+          </div>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <div class="bg-base-300/80 flex h-full justify-center p-6">
+          <figure class="w-full h-full">
+            <img
+              src="alleys_ex_flow.png"
+              alt="exhibition list flow"
+              class="object-cover rounded-box"
+            />
+          </figure>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <div class="bg-base-300 flex h-full justify-center p-6">
+          <Code code={code} lang="ts" class="p-4" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button type="button" class="carousel-prev">
+    <span class="size-9.5 bg-base-100 flex items-center justify-center rounded-full shadow">
+      <span class="icon-[tabler--chevron-left] size-5 cursor-pointer rtl:rotate-180"></span>
+    </span>
+    <span class="sr-only">Previous</span>
+  </button>
+  <button type="button" class="carousel-next">
+    <span class="sr-only">Next</span>
+    <span class="size-9.5 bg-base-100 flex items-center justify-center rounded-full shadow">
+      <span class="icon-[tabler--chevron-right] size-5 cursor-pointer rtl:rotate-180"></span>
+    </span>
+  </button>
+
+  <div class="carousel-pagination absolute bottom-3 end-0 start-0 flex justify-center gap-3"></div>
+</div>

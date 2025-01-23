@@ -1,0 +1,42 @@
+---
+import Section from "~/components/Section.astro"
+import StripedImage from "~/components/StripedImage.astro"
+import urls from "~/config/urls"
+
+
+---
+<Section>
+  <h2 class="text-2xl font-bold mb-8">구현 1. 인증</h2>
+
+  <div class="flex flex-col md:grid md:grid-cols-2 gap-8">
+    <div class="h-fit flex justify-center">
+      <StripedImage image="alleys_signup.png" />
+    </div>
+    <div>
+      <div class="prose">
+        <h3>세션 사용</h3>
+        <ul>
+          <li><p>인증을 위한 별도의 세션과 쿠키를 사용하여 만료시간을 관리했습니다.</p></li>
+          <li><p>세션의 장점을 활용하여 이메일 인증과 동시에 회원가입을 하도록 구현했습니다.</p></li>
+        </ul>
+  
+        <h3>철저한 보안</h3>
+        <ul>
+          <li><p>이메일을 소유하지 않은 사람이 이메일의 회원가입 여부를 알 수 없도록 설계했습니다.</p></li>
+          <li><p>인증코드의 키 스페이스를 고려하여 인증의 제한시간을 설정했습니다.</p></li>
+          <li><p>잘 모르는 보안 정책은 OWASP의 가이드라인을 참고했습니다.</p></li>
+        </ul>
+  
+        <h3>Future-Proof</h3>
+        <ul>
+          <li><p>쿠키, 세션 그리고 API에 버전을 명시하였습니다.</p></li>
+          <li><p>생성된 세션을 DB에서 추적하고 있습니다. 향후 원격 로그아웃을 구현할 수 있습니다.</p></li>
+        </ul>
+      </div>
+      <a href={urls.alleysAuth} target="_blank" class="btn btn-primary">
+        확인하기
+        <span class="icon-[tabler--external-link]" style="width: 24px; height: 24px;"></span>
+      </a>
+    </div>
+  </div>
+</Section>
