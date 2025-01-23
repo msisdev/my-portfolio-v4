@@ -8,6 +8,7 @@ import Preview from "./_components/Preview.astro"
 import Key from "./_components/Key.astro"
 import Words from "./_components/Words.astro"
 import paths from "~/config/paths"
+import system from "~/assets/drincc_system.png"
 ---
 
 <Layout>
@@ -30,7 +31,7 @@ import paths from "~/config/paths"
   <hr class="divider" />
   <Section>
     <h2 class="text-2xl font-bold mb-8">시스템 디자인</h2>
-    <img src="drincc_system.png" class="w-full max-w-[64rem]" />
+    <img src={system.src} class="w-full max-w-[64rem]" />
   </Section>
   <hr class="divider" />
   <Stack />

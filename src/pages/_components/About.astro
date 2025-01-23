@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets"
 import navs from "~/config/navs"
+import image from "~/assets/nerd_face.png"
 ---
 <section
   id={navs.about}
@@ -14,9 +16,15 @@ import navs from "~/config/navs"
       프론트엔드 개발자<br class="md:hidden" />
       김민섭 입니다.
     </h1>
-    <img
+    <!-- <img
       class="m-0 w-24"
       src="/nerd_face.png"
+    /> -->
+    <Image
+      src={image}
+      class="m-0"
+      alt="nerd face"
+      width="96" height="96"
     />
   </div>
 

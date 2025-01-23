@@ -2,7 +2,7 @@
 import Section from "~/components/Section.astro"
 import StripedImage from "~/components/StripedImage.astro"
 import urls from "~/config/urls"
-
+import image from "~/assets/alleys_signup.png"
 
 ---
 <Section>
@@ -10,7 +10,7 @@ import urls from "~/config/urls"
 
   <div class="flex flex-col md:grid md:grid-cols-2 gap-8">
     <div class="h-fit flex justify-center">
-      <StripedImage image="alleys_signup.png" />
+      <StripedImage image={image.src} />
     </div>
     <div>
       <div class="prose">

@@ -8,6 +8,8 @@ import Exhibitions from "./_components/Exhibitions.astro"
 import Style from "./_components/Style.astro"
 import paths from "~/config/paths"
 import urls from "~/config/urls"
+
+import system from "~/assets/alleys_system.png"
 ---
 <Layout>
   <Section>
@@ -24,7 +26,7 @@ import urls from "~/config/urls"
   <hr class="divider" />
   <Section>
     <h2 class="text-2xl font-bold mb-8">시스템 디자인</h2>
-    <img src="alleys_system.png" class="w-full max-w-[64rem]" />
+    <img src={system.src} class="w-full max-w-[64rem]" />
   </Section>
   <hr class="divider" />
   <Stack />

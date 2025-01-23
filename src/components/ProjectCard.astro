@@ -1,15 +1,19 @@
 ---
+import { Image } from 'astro:assets'
+
 interface Props {
-  image: string
+  image: ImageMetadata
+  alt: string
   href: string
 }
 
-const { image, href } = Astro.props
+const { image, alt, href } = Astro.props
 ---
 <div class="card w-[24rem] max-w-[70vw] border border-neutral">
   <figure class="relative overflow-hidden">
-    <img
+    <Image
       src={image}
+      alt={alt}
       class="w-full h-full object-cover"
     />
     <div

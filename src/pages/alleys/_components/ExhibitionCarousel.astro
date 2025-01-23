@@ -1,6 +1,8 @@
 ---
 import { Code } from 'astro:components'
 import StripedImage from "~/components/StripedImage.astro"
+import screenshot from "~/assets/alleys_ex_image.png"
+import flow from "~/assets/alleys_ex_flow.png"
 
 const code = `
 // page.tsx
@@ -48,7 +50,7 @@ export default async function Page({ params, searchParams }: Props) {
       <div class="carousel-slide">
         <div class="bg-base-300/60 flex h-full justify-center p-6">
           <div class="w-fit h-fit">
-            <StripedImage image="alleys_ex_image.png" />
+            <StripedImage image={screenshot.src} />
           </div>
         </div>
       </div>
@@ -56,7 +58,7 @@ export default async function Page({ params, searchParams }: Props) {
         <div class="bg-base-300/80 flex h-full justify-center p-6">
           <figure class="w-full h-full">
             <img
-              src="alleys_ex_flow.png"
+              src={flow.src}
               alt="exhibition list flow"
               class="object-cover rounded-box"
             />
