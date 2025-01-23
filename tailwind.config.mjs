@@ -1,4 +1,6 @@
 const { addDynamicIconSelectors } = require("@iconify/tailwind")
+const flyonui = require("flyonui")
+const flyonuiPlugin = require("flyonui/plugin")
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -10,8 +12,10 @@ export default {
 		extend: {},
 	},
 	plugins: [
-		require('flyonui'), 
-    require('flyonui/plugin'),
+		// require('flyonui'), 
+    // require('flyonui/plugin'),
+		flyonui,
+		flyonuiPlugin,
 		addDynamicIconSelectors(),
 		require('@tailwindcss/typography'),
 	],
