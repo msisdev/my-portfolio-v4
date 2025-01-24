@@ -43,7 +43,9 @@ export default async function Page({ params, searchParams }: Props) {
 <div
   data-carousel='{
     "loadingClasses": "opacity-0",
-    "dotsItemClasses": "carousel-box"
+    "dotsItemClasses": "carousel-box",
+    "isInfiniteLoop": false,
+    "isDraggable": false
   }' class="relative w-full" >
   <div class="carousel">
     <div class="carousel-body h-full opacity-0">
