@@ -19,4 +19,7 @@ export default {
 		addDynamicIconSelectors(),
 		require('@tailwindcss/typography'),
 	],
+	flyonui: {
+		themes: ["soft"],
+	},
 }
