@@ -1,17 +1,27 @@
 ---
 import navs from "~/config/navs"
 import TechIcon from "~/components/TechIcon.astro"
+import honojs from "~/assets/honojs.png"
 
 ---
 <section id={navs.tech} class="w-full flex flex-col items-center px-2 py-32 gap-4 sm:gap-8 bg-base-300">
   <h2 class="text-2xl font-semibold">제가 자신있게 다룰 수 있는 기술입니다.</h2>
   <div class="container my-8 flex flex-wrap justify-center gap-4">
-    <TechIcon icon="devicon-typescript-original" />
-    <TechIcon icon="devicon-react-original" />
-    <TechIcon icon="devicon-tailwindcss-original" />
-    <TechIcon icon="devicon-postgresql-plain" />
-    <TechIcon icon="devicon-cloudflare-plain" />
-    <TechIcon icon="devicon-githubactions-plain" />
+    <TechIcon name="Typescript" icon="devicon-typescript-original" />
+    <TechIcon name="ReactJS" icon="devicon-react-original" />
+    
+    <div class="tooltip">
+      <img src={honojs.src} class="w-16 grayscale" />
+      <span class="tooltip-content tooltip-shown:opacity-100 tooltip-shown:visible" role="tooltip">
+        <span class="tooltip-body">HonoJS</span>
+      </span>
+    </div>
+    
+    <TechIcon name="TailwindCSS" icon="devicon-tailwindcss-original" />
+    <TechIcon name="PostgreSQL" icon="devicon-postgresql-plain" />
+    <TechIcon name="Prisma" icon="devicon-prisma-original" />
+    <TechIcon name="Cloudflare" icon="devicon-cloudflare-plain" />
+    <TechIcon name="Github Actions" icon="devicon-githubactions-plain" />
   </div>
   
   <div class="w-fit flex flex-col items-start gap-2">
