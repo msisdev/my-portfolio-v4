@@ -1,8 +1,15 @@
 ---
 interface Props {
   icon: string
+  name: string
 }
 
-const { icon } = Astro.props
+const { icon, name } = Astro.props
 ---
-<i class={`${icon} text-7xl`}></i>
+
+<div class="tooltip">
+  <i class={`${icon} text-7xl`}></i>
+  <span class="tooltip-content tooltip-shown:opacity-100 tooltip-shown:visible" role="tooltip">
+    <span class="tooltip-body">{name}</span>
+  </span>
+</div>
