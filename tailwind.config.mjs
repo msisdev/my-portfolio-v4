@@ -20,6 +20,6 @@ export default {
 		require('@tailwindcss/typography'),
 	],
 	flyonui: {
-		themes: ["soft"],
+		themes: ["corporate"],
 	},
 }
